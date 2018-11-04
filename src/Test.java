@@ -14,7 +14,7 @@ public class Test {
     
     public static void main(String[] args) {
         
-        //STEP 1# Parse JSON file to desired data structure
+        // Parse JSON file to desired data structure
             try{
                 //JSONArray successArray = new JSONArray();
                 LinkedList successList = new LinkedList();
@@ -30,7 +30,7 @@ public class Test {
                 //Extracted JSON array from JSON object and get all entries
                 JSONArray lArray = (JSONArray) jObject.get("pages");       
         
-        //STEP 2# Create linked hashmap to store parsed JSON data
+        //Create linked hashmap to store parsed JSON data
                 Map<String, LinkedList<String>> map = new LinkedHashMap<>();
                 for (int i = 0; i<lArray.size(); i++){
                     JSONObject aObject = (JSONObject) lArray.get(i);
@@ -44,7 +44,7 @@ public class Test {
                     map.put(a, llist);
                 }
                 
-        //Step 3# Write Algorithm for web crawl
+        // Write Algorithm for web crawl
                 map.forEach((key, value) -> {
                     //System.out.println("\nKey: " + key);
                     for (int z = 0; z< value.size();z++){
@@ -78,7 +78,7 @@ public class Test {
                 }
                 );
             
-            //Step 4# Print web crawl results
+            // Print web crawl results
             System.out.println("Success: " + successList + "\n");
             System.out.println("Skipped: " + skipList + "\n");
             System.out.println("Error: " + failList + "\n");
